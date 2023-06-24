@@ -1,35 +1,20 @@
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
-        List<Integer> ans = new ArrayList<>();
-        int N = nums.length;       
-        int count1 = 0,count2 = 0, cand1 = -1, cand2 =-1;
-        for(int i : nums){          
-            if(cand1 == i){
-                count1++;
-            }else if(cand2 == i){
-                count2++;
-            }else if(count1 == 0){
-                cand1 = i;
-                count1 = 1;
-            }else if(count2 == 0){
-                cand2 = i;
-                count2 = 1;
-            }else{
-                count1--;
-                count2--;
+        
+     HashMap<Integer,Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+        for(int i=0;i<nums.length;i++){
+            if(map.get(nums[i])>nums.length/3){
+                set.add(nums[i]);
             }
-         }
-        count1 = count2 = 0;  
-        for(int i : nums){
-            if(cand1 == i)count1++;
-            if(cand2 == i)count2++;
         }
-          if(count1 > N/3){
-            ans.add(cand1);
+        for(Integer val : set){
+            list.add(val);
         }
-        if(count2 > N/3){
-            ans.add(cand2);
-        }
-          return ans;  
+        return list;
     }
 }
