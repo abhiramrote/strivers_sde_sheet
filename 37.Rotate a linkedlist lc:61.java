@@ -19,3 +19,26 @@ class Solution {
       return head ;
     }
 }
+
+
+
+
+class Solution{
+    //Function to rotate a linked list.
+    public Node rotate(Node head, int k) {
+        // add code here
+        Node curr=head;
+        while(curr.next!=null){
+            curr=curr.next;
+        }
+        while(k!=0){
+            Node t=head.next;
+            curr.next=head;
+            curr=curr.next;
+            curr.next=null;
+            head=t;
+            k--;
+        }
+        return head;
+    }
+}
