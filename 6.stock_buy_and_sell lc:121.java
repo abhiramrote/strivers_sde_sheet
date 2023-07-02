@@ -6,6 +6,7 @@ class Solution {
             minprice=Math.min(minprice,a[i]);
             maxpro=Math.max(maxpro,a[i]-minprice);
         }
+        //
         return maxpro;
     }
 }
