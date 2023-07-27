@@ -1,6 +1,5 @@
 class Solution {
-    public void setZeroes(int[][] matrix) {
-    
+    public void setZeroes(int[][] matrix) {  
       int rows=matrix.length;
       int cols=matrix[0].length;
       Set<Integer>rset=new HashSet<>();
